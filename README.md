@@ -29,7 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Hirejob API is a RESTful API used in [PeWorld Hirejob Aplication](https://github.com/reijiren/HirejobAPP). This API handles every functions in Hirejob Application, such as login & register for workers & recruiters, update profile, search user by skill, insert portfolio and insert job experiences.
+Hirejob API is a RESTful API used in [PeWorld Hirejob Aplication](https://hirejob-rhefrz.vercel.app). This API handles every functions in Hirejob Application, such as login & register for workers & recruiters, update profile, search user by skill, insert portfolio and insert job experiences.
 
 ### Project Structure
 ```
@@ -118,5 +118,5 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- RELATED PROJECT -->
 ## Related Project
-PeWorld Hirejob application
+This API is used in [PeWorld Hirejob application](https://hirejob-rhefrz.vercel.app).
 * [PeWorld Hirejob Application](https://github.com/reijiren/HirejobAPP)
