@@ -5,6 +5,9 @@
   <p align="center">
     <image align="center" width="200" src='./assets/hirejob_logo.png' />
   </p>
+  <p align="center">
+    <a href="https://hirejob-rhefrz.up.railway.app">View API Demo</a>
+  </p>
 </p>
 
 

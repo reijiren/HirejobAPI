@@ -1,4 +1,4 @@
-const fs = require('fs');
+const cloudinary = require("../helper/cloudinary");
 const userModel = require('../model/user.model');
 
 module.exports = {
