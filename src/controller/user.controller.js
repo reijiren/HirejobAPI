@@ -1,4 +1,5 @@
 const userModel = require('../model/user.model');
+const cloudinary = require("../helper/cloudinary");
 const { success, failed, successWithToken } = require('../helper/response');
 
 const bcrypt = require('bcrypt');
@@ -126,9 +127,9 @@ const userController = {
     register: (req, res) => {
         try{
             const { name, email, phone, password, user_type, company_name, position } = req.body;
-            bcrypt.hash(password, 10, (err, hash) => {
+            bcrypt.hash(password, 10, async(err, hash) => {
                 if(err) failed(res, err.message, 'failed', 'failed to hash password');
-
+                const image = req.file ? await cloudinary.uploader.upload(req.file.path) : {secure_url: 'https://res.cloudinary.com/dmkviiqax/image/upload/v1670786753/default_qux8xg.jpg', public_id: ""};
                 const data = {
                     name,
                     email,
@@ -137,7 +138,7 @@ const userController = {
                     user_type,
                     company_name,
                     position,
-                    photo: req.file ? req.file.filename : 'default.png',
+                    photo: `${image.secure_url}|&&|${image.public_id}`,
                 }
 
                 userModel.checkEmail(email)
@@ -201,13 +202,13 @@ const userController = {
 	},
 
     // insert portofolio
-    insertPorto: (req, res) => {
+    insertPorto: async(req, res) => {
         const body = req.body;
-        const image = req.file? req.file.filename : "defaultPorto.png";
+        const image = req.file ? await cloudinary.uploader.upload(req.file.path) : {secure_url: "https://res.cloudinary.com/dmkviiqax/image/upload/v1670752757/default_okkzti.png", public_id: ""};
 
         const data = {
             ...body,
-            image: image
+            image: `${image.secure_url}|&&|${image.public_id}`
         }
 
         userModel.insertPorto(data)
@@ -257,9 +258,9 @@ const userController = {
     updatePhoto: async(req, res) => {
         const id = req.params.id;
         const email = req.body.email;
-        const img = req.file.filename;
+        const img = await cloudinary.uploader.upload(req.file?.path);
 
-        await userModel.updatePhoto(id, img)
+        await userModel.updatePhoto(id, `${img.secure_url}|&&|${img.public_id}`)
         .then((result) => {
             userModel.checkEmail(email)
             .then((result) => {

@@ -2,3 +2,4 @@
 .env
 /assets/*
 !assets/default.png
+!assets/hirejob_logo.png

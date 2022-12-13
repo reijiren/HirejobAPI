@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "56042f23-dfc2-40f3-bc3f-7804c0dd747b",
+		"name": "Peworld",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23292697"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GET ALL USER",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\": \"\",\r\n    \"page\": 1,\r\n    \"limit\": 5,\r\n    \"order\": \"skill\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/search",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHECK EMAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/email/rhefa@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"email",
+								"rhefa@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mei2@gmail.com\",\r\n    \"password\": \"mei\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/user/delete/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PHOTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/rhefa/Documents/PijarCamp/hirejob/Frontend/public/Harry Styles.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/user/photo/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"photo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Portofolio",
+			"item": [
+				{
+					"name": "GET USER'S PORTOFOLIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/user/portofolio/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"portofolio",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PORTOFOLIO DETAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/portofolio/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"portofolio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INSERT PORTOFOLIO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "food recipes",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/rhefa/Documents/PijarCamp/hirejob/Frontend/public/porto 1.png"
+								},
+								{
+									"key": "link",
+									"value": "github/zebra",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/portofolio",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"portofolio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Experience",
+			"item": [
+				{
+					"name": "GET USER'S EXPERIENCE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/user/experience/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"experience",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETAIL EXPERIENCE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/experience/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"experience",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INSERT EXPERIENCE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\": 2,\r\n    \"title\": \"Head Chief\",\r\n    \"company\": \"Telkom\",\r\n    \"date_in\": \"2020-10-31\",\r\n    \"date_out\": \"2021-11-30\",\r\n    \"jobdesk\": \"Menjadi headchief di telkom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/experience",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"experience"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workers",
+			"item": [
+				{
+					"name": "GET WORKER DETAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:3001/user/worker/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"worker",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL WORKERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/user/worker",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"worker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REGISTER WORKERS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"rhefa\",\r\n    \"email\": \"yeye@gmail.com\",\r\n    \"phone\": \"0819345\",\r\n    \"user_type\": 0,\r\n    \"password\": \"rere\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE WORKERS",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mei2@gmail.com\",\r\n    \"description\": \"I am a dreamer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/user/worker/update/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"worker",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recruiters",
+			"item": [
+				{
+					"name": "GET ALL RECRUITERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/user/recruiter",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"recruiter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETAIL RECRUITER",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/user/recruiter/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"recruiter",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REGISTER RECRUITERS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rhefa\",\r\n    \"email\": \"rere@gmail.com\",\r\n    \"phone\": \"0819345\",\r\n    \"user_type\": 1,\r\n    \"company_name\": \"tokped\",\r\n    \"password\": \"rere\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE RECRUITER",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ehsan\",\r\n    \"email\": \"ehsan@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/user/recruiter/update/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"recruiter",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

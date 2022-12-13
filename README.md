@@ -3,7 +3,7 @@
 
   <h3 align="center">Hirejob API</h3>
   <p align="center">
-    <image align="center" width="200" src='./assets/' />
+    <image align="center" width="200" src='./assets/hirejob_logo.png' />
   </p>
 </p>
 
@@ -13,7 +13,8 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
-  * [Built With](#built-with)
+  * [Project Structure](#project-structure)
+  * [Package Modules](#package-modules)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -27,11 +28,40 @@
 
 Hirejob API is a RESTful API used in [PeWorld Hirejob Aplication](https://github.com/reijiren/HirejobAPP). This API handles every functions in Hirejob Application, such as login & register for workers & recruiters, update profile, search user by skill, insert portfolio and insert job experiences.
 
-### Built With
+### Project Structure
+```
+|── HirejobAPI
+   |── assets                            # Public assets
+   |── src                               # Project source code
+       |── config                        # Database configuration
+       |── controller                    # Request controller
+       |── helper                        # Cloudinary setting, Env setting, JWT generation and response
+       |── middleware                    # Middleware configuration
+       |── model                         # Database query model
+       |── router                        # API Endpoint routes
+   |── .env                              # Environment variables   
+   |── .gitignore                        # Files that should be ignored  
+   |── db.sql                            # SQL database creation
+   |── index.js                          # Index file
+   |── Peworld.postman_collection.json   # Postman Documentation
+   |── README.md                         # Readme
+```
+
+### Package Modules
+
+Below are lists of modules used in this API:
 
 * [Node JS](https://nodejs.org/en/docs/)
 * [Express JS](https://expressjs.com/)
 * [PostgreSQL](https://www.postgresql.org/)
+* [Cloudinary](https://cloudinary.com/)
+* [Dotenv](https://www.npmjs.com/package/dotenv)
+* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [CORS](https://www.npmjs.com/package/cors)
+* [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken)
+* [Multer](https://www.npmjs.com/package/multer)
+* [Nodemon](https://www.npmjs.com/package/nodemon)
+* [Pg](https://www.npmjs.com/package/pg)
 
 
 <!-- GETTING STARTED -->
@@ -62,7 +92,9 @@ DB_PASSWORD = your_db_password
 DB_PORT = your_db_port
 PORT = 3001
 JWT_SECRET = your_token_secret
-
+CLOUD_NAME = your_cloudinary_name
+API_KEY = your_cloudinary_api_key
+API_SECRET = your_cloudinary_api_secret
 ```
 
 

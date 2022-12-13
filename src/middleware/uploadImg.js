@@ -1,26 +1,9 @@
 const multer = require('multer');
 const path = require('path');
 
-const currentDate = new Date();
-const dateTime = currentDate.getDate() + '' + (currentDate.getMonth()+1) + '' + currentDate.getFullYear();
-const timestamp = currentDate.getHours() + '' + currentDate.getMinutes() + '' + currentDate.getSeconds() + '' + currentDate.getMilliseconds();
-
 const multerUpload = multer({
-    storage: multer.diskStorage({
-        destination: (req, file, cb) => {
-            cb(null, './assets');
-        },
-        filename: (req, file, cb) => {
-            const name = path.basename(file.originalname);
-            const ext = path.extname(file.originalname);
-            const nameSplit = name.split(`${ext}`);
-
-            const fileName = nameSplit[0] + '-' + dateTime + timestamp + ext;
-            cb(null, fileName);
-        }
-    }),
+    storage: multer.diskStorage({}),
     limits: {
-        // limit filesize up to 2mb
         fileSize: 2 * 1024 * 1024,
     },
 
@@ -43,7 +26,10 @@ module.exports = {
         const multerSingle = multerUpload.single('photo');
         multerSingle(req, res, (err) => {
             if(err){
-                console.log('upload failed');
+                res.json({
+                    message: 'upload user photo failed',
+                    error: err
+                })
             }else{
                 next();
             }
@@ -54,7 +40,10 @@ module.exports = {
         const multerSingle = multerUpload.single('image');
         multerSingle(req, res, (err) => {
             if(err){
-                console.log('upload failed');
+                res.json({
+                    message: 'upload image failed',
+                    error: err
+                })
             }else{
                 next();
             }
