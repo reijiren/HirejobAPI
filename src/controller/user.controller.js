@@ -237,6 +237,7 @@ const userController = {
     updateUser: (req, res) => {
         const id = req.params.id;
         const body = req.body;
+        delete body.photo;
         const newPass = body.password ? bcrypt.hashSync(body.password, 10) : null;
 
         userModel.updateWorkers(id, body, newPass)
@@ -256,23 +257,27 @@ const userController = {
 
     // update photo
     updatePhoto: async(req, res) => {
-        const id = req.params.id;
-        const email = req.body.email;
-        const img = await cloudinary.uploader.upload(req.file?.path);
+        try{
+            const id = req.params.id;
+            const email = req.body.email;
+            const img = await cloudinary.uploader.upload(req.file?.path);
 
-        await userModel.updatePhoto(id, `${img.secure_url}|&&|${img.public_id}`)
-        .then((result) => {
-            userModel.checkEmail(email)
+            await userModel.updatePhoto(id, `${img.secure_url}|&&|${img.public_id}`)
             .then((result) => {
-                success(res, result.rows, "success", "update photo success");
+                userModel.checkEmail(email)
+                .then((result) => {
+                    success(res, result.rows, "success", "update photo success");
+                })
+                .catch((err) => {
+                    failed(res, err.message, "failed", "failed to check email");
+                })
             })
             .catch((err) => {
-                failed(res, err.message, "failed", "failed to check email");
-            })
-        })
-        .catch((err) => {
-            failed(res, err.message, "failed", "failed to update photo");
-        });
+                failed(res, err.message, "failed", "failed to update photo");
+            });
+        }catch(err){
+            console.log(err);
+        }
     },
 
     // delete user
