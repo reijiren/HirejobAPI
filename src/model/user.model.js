@@ -120,7 +120,7 @@ const userModel = {
                 ('${data.name}', '${data.email}', '${data.phone}', '${data.password}', ${data.user_type}, '${data.photo}', now())
                 returning id as user_id
             )
-            insert into ${data.user_type === 0 ? 'workers' : 'recruiters'}(id${data.user_type === 1 ? ', company_name, position' : ''}) values ((select user_id from ins1)${data.user_type === 1 ? `, '${data.company_name}', '${data.position}'` : ''});
+            insert into ${data.user_type === 0 ? 'workers' : 'recruiters'}(id${data.user_type === 1 ? ', company_name, position' : ', skill'}) values ((select user_id from ins1)${data.user_type === 1 ? `, '${data.company_name}', '${data.position}'` : `, ''`});
             `, (err, res) => {
                 if(err) return reject(err);
                 resolve(res);
