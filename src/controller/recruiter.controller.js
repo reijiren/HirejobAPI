@@ -31,6 +31,7 @@ const recController = {
     update: (req, res) => {
         const id = req.params.id;
         const body = req.body;
+        delete body.photo;
         const newPass = body.password ? bcrypt.hashSync(body.password, 10) : null;
 
         recModel.updateRecruiters(id, body, newPass)
