@@ -119,4 +119,4 @@ Contributions are what make the open source community such an amazing place to b
 <!-- RELATED PROJECT -->
 ## Related Project
 This API is used in [PeWorld Hirejob application](https://hirejob-rhefrz.vercel.app).
-* [PeWorld Hirejob Application](https://github.com/reijiren/HirejobAPP)
+* [View Documentation](https://github.com/reijiren/HirejobAPP)
